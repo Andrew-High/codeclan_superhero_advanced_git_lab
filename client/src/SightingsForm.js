@@ -12,9 +12,8 @@ const SightingsForm = ({addSighting}) => {
 
     const onSubmit = (e) =>{
         e.preventDefault();
-        postSighting(formData).then((data)=>{
-            addSighting(data);
-        })
+        postSighting(formData)
+        .then((data)=>{addSighting(data)})
     }
 
     return (

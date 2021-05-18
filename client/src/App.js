@@ -17,9 +17,10 @@ function App() {
   }, []);
 
   const addSighting = (sighting) =>{
-    const temp = birdSightings.map(s =>s);
+    const temp = birdSightings.map(sighting => sighting);
     temp.push(sighting);
     setBirdSightings(temp);
+    console.log(temp);
   }
 
   const removeSighting = (id) => {

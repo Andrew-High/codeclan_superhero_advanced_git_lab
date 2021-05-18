@@ -29,6 +29,26 @@ const createRouter = function (collection) {
       });
   });
 
+
+  router.post('/', (req, res) => {
+    const newSighting = req.body;
+    collection
+      .insertOne(newSighting)
+      .then((data) => res.json(data))
+      .catch((err) => {
+        console.error(err);
+        res.status(500);
+        res.json({ status: 500, error: err });
+      });
+  })
+
+  router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+    collection
+    .deleteOne({_id: ObjectID(id)})
+    .then(data => res.json(data))
+  })
+
   return router;
 };
 
